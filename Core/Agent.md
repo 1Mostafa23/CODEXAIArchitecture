@@ -21,4 +21,4 @@ criteria: testable, observable acceptance conditions
 When done: [[PM]] moves file from `Tasks/Open/` → `Tasks/Done/`.
 
 ## Subclasses
-[[PM]] · [[GameDesigner]] · [[BA]] · [[Architect]] · [[Coder]] · [[ArtDirector]] · [[QA]]
+[[PM]] · [[GameDesigner]] · [[BA]] · [[UXDesigner]] · [[Architect]] · [[Coder]] · [[ArtDirector]] · [[QA]]

@@ -27,4 +27,4 @@ Unity C# rules inherited by all [[Coder]] output. Non-negotiable.
 - Prefabs → `Assets/Prefabs/`
 - Art → `Assets/Generated/`
 
-used_by: [[Coder]], [[Architect]]
+used_by: [[Coder]], [[Architect]], [[UXDesigner]]

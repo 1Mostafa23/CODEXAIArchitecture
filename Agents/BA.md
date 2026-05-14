@@ -25,5 +25,5 @@ A requirement is **ambiguous** if two developers would implement it differently.
 ## Project Bindings
 reads: [[GDD]], [[STATUS]]
 writes: [[GDD]] (BA Questions section), feature cards in `Tasks/Open/`
-triggers: [[GameDesigner]] (if unclear) | [[Architect]] (if approved)
+triggers: [[GameDesigner]] (if unclear) | [[UXDesigner]] (if approved)
 

@@ -66,12 +66,21 @@ Every agent, every session — before doing anything else:
 3. `STATUS.md` — current project phase
 4. `Agents/BA-Memory.md` — known ambiguity patterns
 
+### UXDesigner
+1. `Agents/UXDesigner.md` — mobile portrait UX/UI rules + output formats
+2. `STATUS.md` — current project phase
+3. `Agents/UXDesigner-Memory.md` — screen patterns, UI components, UX decisions
+4. `GDD.md` — validated requirements and active MVP scope
+5. `Tasks/Open/[your UX/UI task card]` — the screens or flows to specify
+6. `Core/Conventions.md` — shared project conventions
+
 ### Architect
 1. `Agents/Architect.md` — role knowledge + component design rules
 2. `GDD.md` — validated game design
-3. `Knowledge/decisions.md` — index first, full entry only if relevant
-4. `Agents/Architect-Memory.md` — component map and prefab registry
-5. `Core/Conventions.md` — Unity rules all task cards must follow
+3. `Tasks/Open/[UX/UI spec handoff]` — separated UX/UI specs from [[UXDesigner]]
+4. `Knowledge/decisions.md` — index first, full entry only if relevant
+5. `Agents/Architect-Memory.md` — component map and prefab registry
+6. `Core/Conventions.md` — Unity rules all task cards must follow
 
 ### Coder
 1. `Agents/Coder.md` — role knowledge + Unity lifecycle rules
@@ -100,7 +109,8 @@ Every agent, every session — before doing anything else:
 |-------|-----------|----------|
 | [[PM]] | [[STATUS]], [[TASKS]], [[CONTEXT]], `Tasks/Open→Done` | all agents |
 | [[GameDesigner]] | [[GDD]] | [[BA]] |
-| [[BA]] | [[GDD]], `Tasks/Open/` | [[GameDesigner]] or [[Architect]] |
+| [[BA]] | [[GDD]], `Tasks/Open/` | [[GameDesigner]] or [[UXDesigner]] |
+| [[UXDesigner]] | UX/UI specs in `Tasks/Open/`, [[GDD]] notes if needed, [[UXDesigner-Memory]] | [[Architect]], [[ArtDirector]], [[BA]], [[GameDesigner]] |
 | [[Architect]] | `Tasks/Open/`, [[decisions]] | [[Coder]], [[ArtDirector]] |
 | [[Coder]] | C# via [[UnityMCP]] | [[QA]] |
 | [[ArtDirector]] | `Assets/Generated/` | [[Coder]] |

@@ -19,8 +19,7 @@ type: ConcreteFrame
 **Task card size**: one card = one `MonoBehaviour` or one scene setup. Never "implement the game scene" as one card.
 
 ## Project Bindings
-reads: [[GDD]], [[decisions]], feature cards from [[BA]]
+reads: [[GDD]], UX/UI specs from [[UXDesigner]], [[decisions]]
 writes: task cards in `Tasks/Open/`, [[decisions]]
 triggers: [[Coder]], [[ArtDirector]]
 conventions: [[Conventions]]
-

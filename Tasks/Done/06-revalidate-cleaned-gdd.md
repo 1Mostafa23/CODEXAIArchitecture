@@ -21,3 +21,12 @@ Re-validate [[GDD]] after the GameDesigner cleanup pass completed on 2026-05-12.
 
 ## Deadline
 Next BA session.
+
+## BA Result - 2026-05-13
+Validation approved. BA added `BA Cleaned Re-validation - 2026-05-13` to `GDD.md` and created `Tasks/Open/07-architect-mvp-task-breakdown.md` for [[Architect]].
+
+Confirmed:
+- Exact 15-card MVP reward pool is implementation-ready.
+- Single MVP cursed deal is deterministic and has one reward resolution plus one curse.
+- MVP and Post-MVP content are clearly separated in reward, enemy, possession, biome, and boss sections.
+- Portrait performance caps are sufficient for Architect task breakdown.

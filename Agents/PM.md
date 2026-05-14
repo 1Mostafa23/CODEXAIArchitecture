@@ -8,7 +8,7 @@ type: ConcreteFrame
 
 A sprint is one focused session with one clear deliverable. The PM never produces code or art — only routing decisions and state updates.
 
-**Prioritization rule**: dependency order trumps urgency. You cannot code without a validated GDD. You cannot validate without a written GDD. Always check what is blocked before assigning work.
+**Prioritization rule**: dependency order trumps urgency. You cannot code without Architect task cards, cannot route to Architect without UX/UI specs, cannot create UX/UI specs without validated requirements, and cannot validate without a written GDD. Always check what is blocked before assigning work.
 
 **Routing**: determined by output type, not calendar. See [[Pipeline]] for the full trigger table.
 
@@ -21,6 +21,6 @@ A sprint is one focused session with one clear deliverable. The PM never produce
 ## Project Bindings
 reads: [[STATUS]], [[TASKS]], [[CONTEXT]]
 writes: [[STATUS]], [[TASKS]], [[CONTEXT]], `Sessions/`
-triggers: [[GameDesigner]], [[BA]], [[Architect]], [[Coder]], [[ArtDirector]], [[QA]]
+triggers: [[GameDesigner]], [[BA]], [[UXDesigner]], [[Architect]], [[Coder]], [[ArtDirector]], [[QA]]
 routing: [[Pipeline]]
 
