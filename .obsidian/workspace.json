@@ -179,8 +179,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8600f8a7e1bb1ed5",
+  "active": "fb1c31e926e25532",
   "lastOpenFiles": [
+    "Sessions/2026-05-15.md",
     "Core/Agent.md",
     "Tasks/Done/14-architect-mvp-task-breakdown-superseded.md",
     "Tasks/Open/15-create-mvp-ux-ui-specs.md",
@@ -206,7 +207,6 @@
     "Sessions/2026-05-13.md",
     "CONTEXT.md",
     "Tasks/Done/05-cleanup-gdd-ba-revalidation.md",
-    "Tasks/Done/04-revalidate-gdd.md",
     "Untitled.canvas",
     "Untitled.base",
     "Meta",
