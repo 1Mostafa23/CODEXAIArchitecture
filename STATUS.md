@@ -3,7 +3,7 @@ project: "[YOUR GAME NAME]"
 phase: "design"
 sprint: 1
 build: "none"
-last_updated: "2026-05-14"
+last_updated: "2026-05-17"
 ---
 
 # STATUS
@@ -27,16 +27,19 @@ last_updated: "2026-05-14"
 - [x] [[BA]] approved the clarified possession-explosion behavior as validated requirements
 - [x] [[PM]] integrated [[UXDesigner]] as the required pipeline step between [[BA]] and [[Architect]]
 - [x] Superseded direct [[Architect]] handoff `Tasks/Done/14-architect-mvp-task-breakdown-superseded.md`
+- [x] [[UXDesigner]] created mobile portrait MVP UX/UI specs in `Tasks/Open/16-mvp-mobile-portrait-ux-ui-specs.md`
+- [x] [[ArtDirector]] fixed the BA-blocked `slot_machine_body_idle` prompt affordance issue
 
 ## In Progress
-- [ ] [[UXDesigner]] creates mobile portrait MVP UX/UI specs using `Tasks/Open/15-create-mvp-ux-ui-specs.md`
+- [ ] [[BA]] re-checks fixed prompt pack using `Tasks/Open/19-ba-recheck-fixed-prompt-pack-before-generation.md`
+- [ ] [[Architect]] creates MVP Unity implementation task cards using `Tasks/Open/17-architect-create-mvp-task-cards-from-ux-ui-specs.md`
 
 ## Next
-- [ ] [[Architect]] creates Unity implementation task cards after UX/UI specs are ready
+- [ ] [[ArtDirector]] generates PNG sprites only after prompt re-check approval and/or Architect art-generation task cards
 - [ ] [[Coder]], [[ArtDirector]], and [[QA]] execute task cards after [[Architect]] breakdown
 
 ## Blockers
-- *(none; active MVP GDD is approved and current dependency is UX/UI specs before [[Architect]] routing)*
+- Production PNG generation is not formally approved until [[BA]] re-checks the fixed prompt pack and [[Architect]] creates implementation/art-generation task cards.
 
 ---
 

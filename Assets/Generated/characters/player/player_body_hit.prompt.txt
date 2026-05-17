@@ -1,0 +1,9 @@
+﻿asset_id: player_body_hit
+target_png_path: Assets/Generated/characters/player/player_body_hit.png
+prompt:
+hooded broken-faith pilgrim hero recoiling with crimson crack glow and wax-white mask intact, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Player hit feedback state. Used by: Player damage feedback, SpriteRenderer. Unity note: Same bounds as idle to avoid visual popping.

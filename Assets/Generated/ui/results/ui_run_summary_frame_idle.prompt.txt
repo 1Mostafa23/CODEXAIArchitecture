@@ -1,0 +1,9 @@
+﻿asset_id: ui_run_summary_frame_idle
+target_png_path: Assets/Generated/ui/results/ui_run_summary_frame_idle.png
+prompt:
+horizontal run summary frame with old-gold casino chapel corners, blank sockets, and wax-white trim, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 1024x512 source PNG UI sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 1024x512
+transparency: Yes, transparent background
+usage_note: Purpose: Decorative frame for run summary stats. Used by: GameOver scene UI. Unity note: UI Image; numbers/labels added in Unity.

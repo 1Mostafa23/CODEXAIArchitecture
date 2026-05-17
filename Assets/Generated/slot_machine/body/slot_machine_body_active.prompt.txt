@@ -1,0 +1,9 @@
+﻿asset_id: slot_machine_body_active
+target_png_path: Assets/Generated/slot_machine/body/slot_machine_body_active.png
+prompt:
+glowing grotesque sacred casino slot machine altar with void-violet reels and blank display panels, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 1024x1024 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 1024x1024
+transparency: Yes, transparent background
+usage_note: Purpose: Slot machine during automatic post-combat roll. Used by: Slot auto-roll presentation. Unity note: State swap during auto-roll; no manual interaction prompt.

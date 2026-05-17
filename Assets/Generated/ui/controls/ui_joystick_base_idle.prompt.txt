@@ -1,0 +1,9 @@
+﻿asset_id: ui_joystick_base_idle
+target_png_path: Assets/Generated/ui/controls/ui_joystick_base_idle.png
+prompt:
+translucent circular old-gold and charcoal joystick base shaped like cracked chapel window with blank center, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG UI sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Floating joystick base at rest. Used by: Input UI prefab. Unity note: UI Image under touch area; no labels.

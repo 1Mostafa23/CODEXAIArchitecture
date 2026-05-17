@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "GDD.md",
+                "file": "Assets/Generated/_MANIFESTS/mvp_sprite_asset_pack.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GDD"
+              "title": "mvp_sprite_asset_pack"
             }
           }
         ],
@@ -179,8 +179,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fb1c31e926e25532",
+  "active": "8600f8a7e1bb1ed5",
   "lastOpenFiles": [
+    "Tasks/Open/19-ba-recheck-fixed-prompt-pack-before-generation.md",
+    "Tasks/Open/18-artdirector-fix-slot-machine-idle-prompt-affordance.md",
+    "Tasks/Open/17-architect-create-mvp-task-cards-from-ux-ui-specs.md",
+    "Tasks/Open/16-mvp-mobile-portrait-ux-ui-specs.md",
+    "Assets/Generated/vfx/rewards/vfx_reward_reveal_sparkle_active.prompt.txt",
+    "Assets/Generated/vfx/possession/vfx_possession_tether_flash_active.prompt.txt",
+    "Assets/Generated/vfx/combat/vfx_enemy_death_puff_active.prompt.txt",
+    "Assets/Generated/vfx/combat/vfx_hit_impact_active.prompt.txt",
+    "Assets/Generated/environment/props/prop_casino_religious_banner_idle.prompt.txt",
+    "Assets/Generated/environment/props/prop_sacred_casino_candles_idle.prompt.txt",
+    "Assets/Generated/environment/props/prop_altar_slot_machine_idle.prompt.txt",
+    "Assets/Generated/environment/props/prop_corrupted_village_house_idle.prompt.txt",
+    "Assets/Generated/environment/arenas/arena_floor_corrupted_village_idle.prompt.txt",
+    "Assets/Generated/ui/meta/ui_meta_unlock_panel_decoration_idle.prompt.txt",
+    "Assets/Generated/_MANIFESTS/prompts_by_folder.md",
+    "GDD.md",
     "Sessions/2026-05-15.md",
     "Core/Agent.md",
     "Tasks/Done/14-architect-mvp-task-breakdown-superseded.md",
@@ -193,7 +209,6 @@
     "Tasks/Open/13-revalidate-possession-explosion.md",
     "Sessions/2026-05-14.md",
     "Core/Pipeline.md",
-    "GDD.md",
     "Tasks/Done/09-revalidate-control-model.md",
     "Tasks/Done/08-revise-gdd-control-simplification.md",
     "Agents/BA-Memory.md",
@@ -202,20 +217,6 @@
     "Tasks/Done/07-architect-mvp-task-breakdown.md",
     "Tasks/Done/06-revalidate-cleaned-gdd.md",
     "Tasks/Open/08-revise-gdd-control-simplification.md",
-    "Tasks/Open/07-architect-mvp-task-breakdown.md",
-    "Agents/Architect.md",
-    "Sessions/2026-05-13.md",
-    "CONTEXT.md",
-    "Tasks/Done/05-cleanup-gdd-ba-revalidation.md",
-    "Untitled.canvas",
-    "Untitled.base",
-    "Meta",
-    "Tasks/Done",
-    "Tasks/Open",
-    "Agents/BA",
-    "Agents/GameDesigner",
-    "Templates",
-    "Tools",
-    "Core"
+    "Untitled.canvas"
   ]
 }

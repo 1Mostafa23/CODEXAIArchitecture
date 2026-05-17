@@ -1,0 +1,9 @@
+﻿asset_id: ui_reward_card_frame_idle
+target_png_path: Assets/Generated/ui/rewards/ui_reward_card_frame_idle.png
+prompt:
+vertical reward card frame with old-gold chapel arch corners, charcoal interior, and blank wax-white text area space, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 768x1024 source PNG UI sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 768x1024
+transparency: Yes, transparent background
+usage_note: Purpose: Standard reward card frame. Used by: Reward choice UI. Unity note: UI Image; text and icon placed by Unity UI.

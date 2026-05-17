@@ -1,0 +1,9 @@
+﻿asset_id: reward_icon_standard_06
+target_png_path: Assets/Generated/ui/rewards/reward_icon_standard_06.png
+prompt:
+void-violet watching eye blessing icon with crimson tear and old-gold broken rim, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG icon readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Standard reward icon placeholder 06. Used by: Reward cards. Unity note: Placeholder; does not define mechanics.

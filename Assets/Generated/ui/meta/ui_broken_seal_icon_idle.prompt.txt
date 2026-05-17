@@ -1,0 +1,9 @@
+﻿asset_id: ui_broken_seal_icon_idle
+target_png_path: Assets/Generated/ui/meta/ui_broken_seal_icon_idle.png
+prompt:
+broken old-gold sacred seal icon with void-violet crack and wax-white glow, no letters or numbers, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG icon readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: First meta unlock icon: Broken Seal. Used by: MainMenu/meta unlock UI. Unity note: UI Image; unlock name/effect text in Unity.

@@ -1,0 +1,9 @@
+﻿asset_id: boss_attack_warning_marker_ready
+target_png_path: Assets/Generated/characters/boss/boss_attack_warning_marker_ready.png
+prompt:
+circular crimson and old-gold warning sigil shaped like blank coupon tape spiral with broken halo edge, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Floor warning marker for boss AOE/tape attack. Used by: Boss attack telegraph prefab. Unity note: SpriteRenderer or UI world-space image; transparent center acceptable.

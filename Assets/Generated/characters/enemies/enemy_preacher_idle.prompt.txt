@@ -1,0 +1,9 @@
+﻿asset_id: enemy_preacher_idle
+target_png_path: Assets/Generated/characters/enemies/enemy_preacher_idle.png
+prompt:
+squat preacher cultist with megaphone-shaped reliquary and blank prayer-ticket fan, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Ranged preacher enemy base. Used by: Enemy prefab, Wave Director. Unity note: Keep blank papers free of letters or numbers.

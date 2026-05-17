@@ -1,0 +1,9 @@
+﻿asset_id: vfx_reward_reveal_sparkle_active
+target_png_path: Assets/Generated/vfx/rewards/vfx_reward_reveal_sparkle_active.png
+prompt:
+old-gold candle sparkle burst with wax-white glints and tiny void-violet cracks, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG VFX sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Reward reveal sparkle. Used by: Reward UI VFX prefab. Unity note: UI overlay or SpriteRenderer VFX.
