@@ -29,17 +29,19 @@ last_updated: "2026-05-17"
 - [x] Superseded direct [[Architect]] handoff `Tasks/Done/14-architect-mvp-task-breakdown-superseded.md`
 - [x] [[UXDesigner]] created mobile portrait MVP UX/UI specs in `Tasks/Open/16-mvp-mobile-portrait-ux-ui-specs.md`
 - [x] [[ArtDirector]] fixed the BA-blocked `slot_machine_body_idle` prompt affordance issue
+- [x] [[BA]] re-checked fixed prompt pack; approved for image generation
+- [x] [[Architect]] simplified the immediate pipeline and created `Tasks/Open/20-artdirector-generate-mvp-sprite-pngs.md`
 
 ## In Progress
-- [ ] [[BA]] re-checks fixed prompt pack using `Tasks/Open/19-ba-recheck-fixed-prompt-pack-before-generation.md`
-- [ ] [[Architect]] creates MVP Unity implementation task cards using `Tasks/Open/17-architect-create-mvp-task-cards-from-ux-ui-specs.md`
+- [ ] [[PM]] starts [[ArtDirector]] PNG generation using `Tasks/Open/20-artdirector-generate-mvp-sprite-pngs.md`
 
 ## Next
-- [ ] [[ArtDirector]] generates PNG sprites only after prompt re-check approval and/or Architect art-generation task cards
-- [ ] [[Coder]], [[ArtDirector]], and [[QA]] execute task cards after [[Architect]] breakdown
+- [ ] [[ArtDirector]] generates the 78 manifest-listed PNG sprites to exact `target_png_path` values
+- [ ] User manually reviews generated sprites
+- [ ] [[Architect]] resumes Unity implementation task breakdown later, after sprite generation and user review
 
 ## Blockers
-- Production PNG generation is not formally approved until [[BA]] re-checks the fixed prompt pack and [[Architect]] creates implementation/art-generation task cards.
+- None for sprite generation. Unity implementation is deferred by current owner direction.
 
 ---
 

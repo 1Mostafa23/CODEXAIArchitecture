@@ -7,7 +7,7 @@ owner: "[[Architect]]"
 > Write rule: append to **Recent**. Move oldest to **Archive** when Recent exceeds 3 entries.
 
 ## Recent
-*(no design sessions yet)*
+- 2026-05-17 - Simplified immediate pipeline by deferring Unity implementation breakdown and creating `Tasks/Open/20-artdirector-generate-mvp-sprite-pngs.md` as the only current ArtDirector PNG-generation task card. No Coder or QA cards were created.
 
 ## Archive
 *(none)*

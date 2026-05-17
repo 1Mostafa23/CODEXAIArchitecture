@@ -7,12 +7,13 @@ owner: "[[ArtDirector]]"
 > Write rule: append to **Recent**. Move oldest to **Archive** when Recent exceeds 3 entries.
 
 ## Recent
-- 2026-05-17 - Created the planned empty `Assets/Generated/` folder tree and `Assets/Generated/_MANIFESTS/mvp_sprite_asset_pack.md` as the complete MVP sprite pack plan and Coder handoff. No PNGs were generated.
-- 2026-05-17 - Exported the MVP sprite prompt pack from the manifest into `Assets/Generated/_MANIFESTS/asset_prompts.csv`, `Assets/Generated/_MANIFESTS/prompts_by_folder.md`, and one `.prompt.txt` file beside each planned PNG path. No PNGs, prefabs, or code were generated.
 - 2026-05-17 - Fixed the `slot_machine_body_idle` prompt affordance risk by removing lever/button wording from the CSV, grouped prompt markdown, prompt txt, and source manifest. No PNGs were generated.
+- 2026-05-17 - Created `Assets/Generated/_ART_BIBLE/` with object catalog, state matrix, unified style rules, readiness verdict, and Unity usage notes. No PNGs, prompts, or manifests were modified.
+- 2026-05-17 - Added the Gospel of the Jackpot sprite-generation skill doctrine to `Agents/ArtDirector.md`, binding future PNG generation to the manifest, prompt files, art bible, approved portrait HUD reference, project palette, and hard no-manual-control restrictions.
 
 ## Archive
-*(none)*
+- 2026-05-17 - Created the planned empty `Assets/Generated/` folder tree and `Assets/Generated/_MANIFESTS/mvp_sprite_asset_pack.md` as the complete MVP sprite pack plan and Coder handoff. No PNGs were generated.
+- 2026-05-17 - Exported the MVP sprite prompt pack from the manifest into `Assets/Generated/_MANIFESTS/asset_prompts.csv`, `Assets/Generated/_MANIFESTS/prompts_by_folder.md`, and one `.prompt.txt` file beside each planned PNG path. No PNGs, prefabs, or code were generated.
 
 ## Asset Registry
 | Asset | Path | Dimensions | Task |

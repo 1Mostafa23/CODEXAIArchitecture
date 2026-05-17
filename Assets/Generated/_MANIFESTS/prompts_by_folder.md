@@ -1,4 +1,4 @@
-﻿# Prompts By Folder
+# Prompts By Folder
 
 Source manifest: `Assets/Generated/_MANIFESTS/mvp_sprite_asset_pack.md`
 

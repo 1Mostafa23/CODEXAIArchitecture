@@ -18,11 +18,11 @@
 | T13 | Re-validate possession explosion clarification | BA | done | T12 | Done card: `Tasks/Done/13-revalidate-possession-explosion.md`; approved buff-only possession explosion as validated requirements |
 | T14 | Create MVP implementation task cards | Architect | done | T13 | Superseded card: `Tasks/Done/14-architect-mvp-task-breakdown-superseded.md`; direct BA-to-Architect route replaced by UXDesigner step |
 | T15 | Create MVP UX/UI specs | UXDesigner | done | T13 | Specs created in `Tasks/Open/16-mvp-mobile-portrait-ux-ui-specs.md`; original handoff `Tasks/Open/15-create-mvp-ux-ui-specs.md` can be archived by PM later |
-| T16 | Create MVP implementation task cards from UX/UI specs | Architect | in_progress | T15 | Active handoff: `Tasks/Open/17-architect-create-mvp-task-cards-from-ux-ui-specs.md` |
+| T16 | Create MVP implementation task cards from UX/UI specs | Architect | pending | T15 | Deferred until after MVP PNG sprite generation and user review; handoff remains `Tasks/Open/17-architect-create-mvp-task-cards-from-ux-ui-specs.md` |
 | T17 | Review sprite prompt pack suitability | BA | done | T15 | BA found one blocker in `slot_machine_body_idle`; see `Tasks/Open/18-artdirector-fix-slot-machine-idle-prompt-affordance.md` |
 | T18 | Fix slot machine idle prompt affordance | ArtDirector | done | T17 | Fixed prompt wording in CSV, grouped markdown, prompt txt, and source manifest; no PNGs generated |
-| T19 | Re-check fixed prompt pack before image generation | BA | in_progress | T18 | Active handoff: `Tasks/Open/19-ba-recheck-fixed-prompt-pack-before-generation.md` |
-| T20 | Generate MVP sprite PNGs from approved prompt pack | ArtDirector | pending | T19, T16 | Wait for BA prompt approval and Architect task cards unless owner explicitly chooses a non-production test batch |
+| T19 | Re-check fixed prompt pack before image generation | BA | done | T18 | Done card: `Tasks/Done/19-ba-recheck-fixed-prompt-pack-before-generation.md`; BA approved prompt pack for image generation |
+| T20 | Generate MVP sprite PNGs from approved prompt pack | ArtDirector | pending | T19 | Active handoff: `Tasks/Open/20-artdirector-generate-mvp-sprite-pngs.md`; generate only the 78 manifest-listed PNGs for user manual review |
 
 ---
 

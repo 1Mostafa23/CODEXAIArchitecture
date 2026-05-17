@@ -2,6 +2,7 @@
 task: "Create MVP Unity Task Cards From UX/UI Specs"
 target: [[Architect]]
 source_agent: [[UXDesigner]]
+status: deferred_until_after_sprite_generation
 input:
   - GDD.md
   - Tasks/Open/16-mvp-mobile-portrait-ux-ui-specs.md
@@ -10,6 +11,16 @@ input:
 ---
 
 # Handoff to Architect
+
+## Pipeline Note - 2026-05-17
+
+Owner direction simplified the immediate pipeline. Unity implementation, [[Coder]] task cards, and [[QA]] task cards are deferred until after MVP PNG sprite generation and user manual review.
+
+The immediate Architect output for sprite generation is complete:
+
+- `Tasks/Open/20-artdirector-generate-mvp-sprite-pngs.md`
+
+Keep this card open as the later Unity implementation handoff.
 
 Create Unity implementation task cards from the approved MVP GDD and the mobile portrait UX/UI specs.
 
