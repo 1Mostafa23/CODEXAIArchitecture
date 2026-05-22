@@ -1,0 +1,9 @@
+﻿asset_id: vfx_p03_explosion_active
+target_png_path: Assets/Generated/vfx/p03/vfx_p03_explosion_active.png
+prompt:
+compact void-violet and crimson spirit explosion from cracked old-gold vessel halo with enemy-only blast silhouette, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG VFX sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: P03 Last Breath damaging possession-exit explosion. Used by: P03 reward effect VFX prefab. Unity note: Only use for P03; default possession exit must not call this VFX.

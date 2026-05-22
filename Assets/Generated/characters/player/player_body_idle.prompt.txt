@@ -1,0 +1,9 @@
+﻿asset_id: player_body_idle
+target_png_path: Assets/Generated/characters/player/player_body_idle.png
+prompt:
+hooded broken-faith pilgrim hero with compact body and oversized wax-white mask, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Default hero body, readable top-down/three-quarter silhouette. Used by: Player gameplay prefab, SpriteRenderer. Unity note: Import as SpriteRenderer sprite, 128 PPU, pivot center-bottom.

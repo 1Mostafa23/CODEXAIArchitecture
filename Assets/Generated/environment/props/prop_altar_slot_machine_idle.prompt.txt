@@ -1,0 +1,9 @@
+﻿asset_id: prop_altar_slot_machine_idle
+target_png_path: Assets/Generated/environment/props/prop_altar_slot_machine_idle.png
+prompt:
+small broken altar slot-machine prop with blank reel windows and melted candles, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Non-interactive altar slot-machine prop for arena dressing if needed. Used by: Room decoration prefab. Unity note: Decorative only; not the reward machine interaction.

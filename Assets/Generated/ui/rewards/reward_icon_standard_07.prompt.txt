@@ -1,0 +1,9 @@
+﻿asset_id: reward_icon_standard_07
+target_png_path: Assets/Generated/ui/rewards/reward_icon_standard_07.png
+prompt:
+black casino token blessing icon with old-gold rim, wax-white crack, and no letters or numbers, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG icon readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Standard reward icon placeholder 07. Used by: Reward cards. Unity note: Placeholder; does not define mechanics.

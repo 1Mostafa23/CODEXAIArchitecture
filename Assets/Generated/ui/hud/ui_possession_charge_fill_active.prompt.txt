@@ -1,0 +1,9 @@
+﻿asset_id: ui_possession_charge_fill_active
+target_png_path: Assets/Generated/ui/hud/ui_possession_charge_fill_active.png
+prompt:
+void-violet spirit wax charge fill with old-gold sparks and clean horizontal silhouette, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 1024x512 source PNG UI sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 1024x512
+transparency: Yes, transparent background
+usage_note: Purpose: Possession charge fill. Used by: HUD fill Image. Unity note: Filled Image; use color/alpha animation in Unity.

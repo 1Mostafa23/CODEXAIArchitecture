@@ -1,0 +1,9 @@
+﻿asset_id: vfx_enemy_death_puff_active
+target_png_path: Assets/Generated/vfx/combat/vfx_enemy_death_puff_active.png
+prompt:
+small charcoal wax smoke puff with old-gold flecks and void-violet inner curl, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG VFX sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Enemy death puff. Used by: Enemy death VFX prefab. Unity note: SpriteRenderer VFX; not used for P03 explosion.

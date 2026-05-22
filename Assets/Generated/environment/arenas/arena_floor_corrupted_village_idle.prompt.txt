@@ -1,0 +1,9 @@
+﻿asset_id: arena_floor_corrupted_village_idle
+target_png_path: Assets/Generated/environment/arenas/arena_floor_corrupted_village_idle.png
+prompt:
+circular corrupted village arena floor patch with cracked chapel stones, faint casino-chip geometry, and muddy charcoal edges, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 1024x1024 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 1024x1024
+transparency: Yes, transparent background
+usage_note: Purpose: Simple arena floor/background for five combat rooms. Used by: Game scene background. Unity note: SpriteRenderer background; can be scaled, avoid busy detail under enemies.

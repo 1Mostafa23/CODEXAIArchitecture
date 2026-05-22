@@ -1,0 +1,9 @@
+﻿asset_id: possession_active_overlay_active
+target_png_path: Assets/Generated/possession/possession_active_overlay_active.png
+prompt:
+jagged void-violet spirit aura wrapped by old-gold broken halo fragments with transparent center, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Active possession aura over controlled vessel. Used by: Possession prefab, controlled enemy overlay. Unity note: Overlay SpriteRenderer; can pulse via script.

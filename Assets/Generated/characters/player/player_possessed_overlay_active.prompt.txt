@@ -1,0 +1,9 @@
+﻿asset_id: player_possessed_overlay_active
+target_png_path: Assets/Generated/characters/player/player_possessed_overlay_active.png
+prompt:
+floating void-violet halo flame overlay shaped like cracked casino seal around a controlled body, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Overlay showing player is controlling a vessel. Used by: Possession prefab, SpriteRenderer overlay. Unity note: Additive/overlay candidate; no baked enemy body.

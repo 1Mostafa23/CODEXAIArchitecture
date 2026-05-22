@@ -1,0 +1,9 @@
+﻿asset_id: possession_exit_marker_active
+target_png_path: Assets/Generated/possession/possession_exit_marker_active.png
+prompt:
+quiet fading wax-white spirit wisp with small broken halo fragments and no blast shape, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Non-damaging default possession exit marker. Used by: Possession exit feedback. Unity note: Must not be used as explosion or damage indicator.

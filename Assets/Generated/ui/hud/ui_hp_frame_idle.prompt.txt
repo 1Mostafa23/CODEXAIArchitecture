@@ -1,0 +1,9 @@
+﻿asset_id: ui_hp_frame_idle
+target_png_path: Assets/Generated/ui/hud/ui_hp_frame_idle.png
+prompt:
+horizontal cracked reliquary health bar frame with old-gold corners and wax-white bone inlay, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 1024x512 source PNG UI sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 1024x512
+transparency: Yes, transparent background
+usage_note: Purpose: HP bar frame. Used by: HUD prefab, Unity UI Image. Unity note: Use as sliced UI Image; no numbers or labels.

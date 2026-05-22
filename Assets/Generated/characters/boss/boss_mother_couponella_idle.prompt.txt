@@ -1,0 +1,9 @@
+﻿asset_id: boss_mother_couponella_idle
+target_png_path: Assets/Generated/characters/boss/boss_mother_couponella_idle.png
+prompt:
+enormous matriarch coupon priestess with blank coupon veil, slot-machine torso, candle crown, and clawed blessing pose, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 1024x1024 source PNG sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 1024x1024
+transparency: Yes, transparent background
+usage_note: Purpose: Mother Couponella boss base sprite. Used by: Boss prefab, SpriteRenderer. Unity note: SpriteRenderer; pivot center-bottom; no readable coupon text.

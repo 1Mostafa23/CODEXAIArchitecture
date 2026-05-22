@@ -1,0 +1,9 @@
+﻿asset_id: ui_cursed_deal_frame_active
+target_png_path: Assets/Generated/ui/rewards/ui_cursed_deal_frame_active.png
+prompt:
+vertical cursed deal frame with crimson wax cracks, void-violet smoke corners, old-gold chapel arch, and blank interior, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 768x1024 source PNG UI sprite readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 768x1024
+transparency: Yes, transparent background
+usage_note: Purpose: Cursed deal card/popup frame. Used by: Reward UI, cursed deal stop 2. Unity note: UI Image; cursed deal name/effect added via Unity text.

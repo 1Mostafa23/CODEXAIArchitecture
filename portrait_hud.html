@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gospel of the Jackpot - Mobile HUD Prototype</title>
+    <style>
+        :root {
+            --charcoal: #17151A;
+            --old-gold: #C89B3C;
+            --wax-white: #E8DCC2;
+            --crimson: #9E2431;
+            --void-violet: #6D4BC3;
+            --safe-area-top: 40px;
+            --safe-area-side: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Mobile Container (9:16) */
+        .mobile-viewport {
+            width: 393px; /* Standard modern mobile width */
+            height: 852px; /* Standard modern mobile height */
+            background-color: var(--charcoal);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            border: 8px solid #333;
+            border-radius: 40px;
+        }
+
+        /* Arena Layer */
+        .arena {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('Assets/Generated/environment/arenas/arena_floor_corrupted_village_idle.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Game Objects */
+        .game-object {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .player {
+            top: 60%;
+            left: 50%;
+            width: 120px;
+            z-index: 10;
+            transition: left 0.1s linear, top 0.1s linear;
+        }
+
+        .enemy {
+            width: 100px;
+        }
+
+        /* Possession Marker */
+        .possession-ring {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            background: url('Assets/Generated/possession/possession_marked_vessel_ring_ready.png') no-repeat center;
+            background-size: contain;
+            transform: translate(-50%, -50%);
+            animation: rotate-slow 10s linear infinite;
+            z-index: 5;
+        }
+
+        .possession-ready-marker {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background: url('Assets/Generated/possession/possession_ready_marker_ready.png') no-repeat center;
+            background-size: contain;
+            transform: translateX(-50%);
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes rotate-slow {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* HUD Layer */
+        .hud-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            padding: var(--safe-area-top) var(--safe-area-side);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Band */
+        .top-band {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 80px;
+        }
+
+        .hud-element {
+            position: relative;
+            pointer-events: auto;
+        }
+
+        .hp-container {
+            width: 140px;
+            height: 50px;
+        }
+
+        .hp-frame {
+            width: 100%;
+            height: 100%;
+            background: url('Assets/Generated/ui/hud/ui_hp_frame_idle.png') no-repeat center;
+            background-size: contain;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .hp-fill {
+            width: 85%;
+            height: 60%;
+            background: url('Assets/Generated/ui/hud/ui_hp_fill_active.png') no-repeat left center;
+            background-size: cover;
+            position: absolute;
+            top: 20%;
+            left: 8%;
+            z-index: 1;
+            transition: width 0.3s ease;
+        }
+
+        .room-container {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .room-frame {
+            width: 60px;
+            height: 60px;
+            background: url('Assets/Generated/ui/hud/ui_room_progress_frame_idle.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .room-icon {
+            width: 40px;
+            height: 40px;
+            background: url('Assets/Generated/ui/hud/ui_room_progress_icon_active.png') no-repeat center;
+            background-size: contain;
+            margin-top: -50px;
+        }
+
+        .token-container {
+            width: 100px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 5px;
+        }
+
+        .token-icon {
+            width: 40px;
+            height: 40px;
+            background: url('Assets/Generated/ui/hud/ui_token_icon_idle.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .token-count {
+            color: var(--wax-white);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        /* Possession Bar */
+        .possession-container {
+            align-self: center;
+            margin-top: 10px;
+            width: 180px;
+            height: 30px;
+        }
+
+        .possession-frame {
+            width: 100%;
+            height: 100%;
+            background: url('Assets/Generated/ui/hud/ui_possession_charge_frame_idle.png') no-repeat center;
+            background-size: contain;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .possession-fill {
+            width: 70%;
+            height: 50%;
+            background: url('Assets/Generated/ui/hud/ui_possession_charge_fill_active.png') no-repeat left center;
+            background-size: cover;
+            position: absolute;
+            top: 25%;
+            left: 5%;
+            z-index: 1;
+            filter: drop-shadow(0 0 5px var(--void-violet));
+        }
+
+        /* Controls */
+        .joystick-zone {
+            position: absolute;
+            bottom: 60px;
+            left: 40px;
+            width: 150px;
+            height: 150px;
+            pointer-events: auto;
+            z-index: 100;
+        }
+
+        .joystick-base {
+            width: 100%;
+            height: 100%;
+            background: url('Assets/Generated/ui/controls/ui_joystick_base_idle.png') no-repeat center;
+            background-size: contain;
+            opacity: 0.6;
+        }
+
+        .joystick-knob {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 70px;
+            height: 70px;
+            background: url('Assets/Generated/ui/controls/ui_joystick_knob_idle.png') no-repeat center;
+            background-size: contain;
+            transform: translate(-50%, -50%);
+        }
+
+        .auto-attack-indicator {
+            position: absolute;
+            top: 150px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: url('Assets/Generated/ui/hud/ui_auto_attack_indicator_active.png') no-repeat center;
+            background-size: contain;
+            filter: drop-shadow(0 0 5px var(--old-gold));
+        }
+
+        /* Reward Screen */
+        #reward-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .slot-machine-container {
+            width: 200px;
+            height: 200px;
+            background: url('Assets/Generated/slot_machine/body/slot_machine_body_idle.png') no-repeat center;
+            background-size: contain;
+            margin-bottom: 30px;
+        }
+
+        .reward-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .reward-card {
+            background: url('Assets/Generated/ui/rewards/ui_reward_card_frame_idle.png') no-repeat center;
+            background-size: 100% 100%;
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            color: var(--wax-white);
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            pointer-events: auto;
+        }
+
+        .reward-card:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        .reward-card .icon {
+            width: 40px;
+            height: 40px;
+            background-size: contain;
+            margin-right: 15px;
+        }
+
+        /* Text Labels (Unity UI simulation) */
+        .ui-label {
+            position: absolute;
+            color: var(--wax-white);
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            pointer-events: none;
+        }
+
+        .hp-label { top: -15px; left: 10px; color: var(--crimson); }
+        .possession-label { bottom: -18px; left: 50%; transform: translateX(-50%); color: var(--void-violet); font-size: 0.6rem; width: 100%; text-align: center; }
+        .room-label { bottom: -5px; width: 100%; text-align: center; font-size: 0.7rem; color: var(--old-gold); }
+
+        .game-over-banner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            z-index: 2000;
+            display: none;
+        }
+
+        .victory-text {
+            color: var(--old-gold);
+            font-size: 3rem;
+            text-shadow: 0 0 20px var(--old-gold);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="mobile-viewport">
+        <!-- Gameplay Layer -->
+        <div class="arena"></div>
+        
+        <img src="Assets/Generated/characters/player/player_body_idle.png" class="game-object player" id="player" alt="Player">
+        
+        <div id="enemies-container">
+            <img src="Assets/Generated/characters/enemies/enemy_weak_cultist_idle.png" class="game-object enemy" id="enemy1" alt="Cultist" style="top: 30%; left: 30%;">
+            
+            <div class="game-object" id="enemy2" style="width: 100px; height: 100px; top: 40%; left: 70%;">
+                <div class="possession-ring"></div>
+                <div class="possession-ready-marker"></div>
+                <img src="Assets/Generated/characters/enemies/enemy_fast_fanatic_idle.png" style="width: 100%; height: 100%; position: relative; z-index: 6;" alt="Fanatic">
+            </div>
+
+            <img src="Assets/Generated/characters/enemies/enemy_preacher_idle.png" class="game-object enemy" id="enemy3" alt="Preacher" style="top: 20%; left: 55%;">
+        </div>
+
+        <!-- HUD Layer -->
+        <div class="hud-overlay">
+            <div class="top-band">
+                <div class="hud-element hp-container">
+                    <div class="hp-label ui-label">LIFE</div>
+                    <div class="hp-frame"></div>
+                    <div class="hp-fill" id="hp-fill"></div>
+                </div>
+
+                <div class="hud-element room-container">
+                    <div class="room-frame"></div>
+                    <div class="room-icon"></div>
+                    <div id="room-label" class="room-label ui-label">ROOM 2/5</div>
+                </div>
+
+                <div class="hud-element token-container">
+                    <span class="token-count" id="token-count">666</span>
+                    <div class="token-icon"></div>
+                </div>
+            </div>
+
+            <div class="hud-element possession-container">
+                <div class="possession-frame"></div>
+                <div class="possession-fill" id="possession-fill"></div>
+                <div id="possession-label" class="possession-label ui-label">POSSESSION READY</div>
+            </div>
+        </div>
+
+        <!-- Combat Feedback -->
+        <div class="auto-attack-indicator"></div>
+
+        <!-- Controls -->
+        <div class="joystick-zone" id="joystick-zone">
+            <div class="joystick-base"></div>
+            <div class="joystick-knob" id="joystick-knob"></div>
+        </div>
+
+        <!-- Reward Screen -->
+        <div id="reward-screen">
+            <h2 style="color: var(--old-gold); margin-bottom: 20px;">ROOM CLEAR</h2>
+            <div class="slot-machine-container"></div>
+            <div class="reward-cards">
+                <div class="reward-card" onclick="nextRoom()">
+                    <div class="icon" style="background-image: url('Assets/Generated/slot_machine/symbols/slot_symbol_token_idle.png');"></div>
+                    <span>+100 TOKENS</span>
+                </div>
+                <div class="reward-card" onclick="nextRoom()">
+                    <div class="icon" style="background-image: url('Assets/Generated/slot_machine/symbols/slot_symbol_eye_idle.png');"></div>
+                    <span>POSSESSION BOOST</span>
+                </div>
+                <div class="reward-card" onclick="nextRoom()">
+                    <div class="icon" style="background-image: url('Assets/Generated/ui/hud/ui_hp_fill_active.png');"></div>
+                    <span>HEAL 25%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-over-banner" id="victory-banner">
+            <h1 class="victory-text">VICTORY</h1>
+            <button onclick="location.reload()" style="background: var(--old-gold); border: none; padding: 10px 20px; font-weight: bold; border-radius: 5px; cursor: pointer;">RESTART RUN</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Game State
+        const state = {
+            player: { x: 50, y: 60, speed: 0.8, el: document.getElementById('player') },
+            joystick: { active: false, x: 0, y: 0, angle: 0, dist: 0 },
+            enemies: [
+                { id: 'enemy1', x: 30, y: 30, possessed: false, el: document.getElementById('enemy1') },
+                { id: 'enemy2', x: 70, y: 40, possessed: false, el: document.getElementById('enemy2'), targetable: true },
+                { id: 'enemy3', x: 55, y: 20, possessed: false, el: document.getElementById('enemy3') }
+            ],
+            possession: 100,
+            room: 2,
+            tokens: 666,
+            isRoomClear: false
+        };
+
+        // Joystick Logic
+        const knob = document.getElementById('joystick-knob');
+        const zone = document.getElementById('joystick-zone');
+        
+        const handleJoystick = (e) => {
+            const rect = zone.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            
+            const x = clientX - rect.left - rect.width/2;
+            const y = clientY - rect.top - rect.height/2;
+            
+            state.joystick.dist = Math.min(Math.sqrt(x*x + y*y), 40);
+            state.joystick.angle = Math.atan2(y, x);
+            state.joystick.active = true;
+            
+            const moveX = Math.cos(state.joystick.angle) * state.joystick.dist;
+            const moveY = Math.sin(state.joystick.angle) * state.joystick.dist;
+            
+            knob.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+            
+            state.joystick.x = Math.cos(state.joystick.angle) * (state.joystick.dist / 40);
+            state.joystick.y = Math.sin(state.joystick.angle) * (state.joystick.dist / 40);
+        };
+
+        zone.addEventListener('mousedown', (e) => {
+            state.joystick.active = true;
+            handleJoystick(e);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (state.joystick.active) handleJoystick(e);
+        });
+
+        window.addEventListener('mouseup', () => {
+            state.joystick.active = false;
+            knob.style.transform = `translate(-50%, -50%)`;
+            state.joystick.x = 0;
+            state.joystick.y = 0;
+        });
+
+        // Touch support
+        zone.addEventListener('touchstart', (e) => {
+            state.joystick.active = true;
+            handleJoystick(e);
+            e.preventDefault();
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (state.joystick.active) handleJoystick(e);
+        }, { passive: false });
+
+        window.addEventListener('touchend', () => {
+            state.joystick.active = false;
+            knob.style.transform = `translate(-50%, -50%)`;
+            state.joystick.x = 0;
+            state.joystick.y = 0;
+        });
+
+        // Game Loop
+        function update() {
+            if (state.isRoomClear) return;
+
+            // Update Player Position
+            if (state.joystick.active) {
+                state.player.x += state.joystick.x * state.player.speed;
+                state.player.y += state.joystick.y * state.player.speed;
+                
+                // Bounds
+                state.player.x = Math.max(5, Math.min(95, state.player.x));
+                state.player.y = Math.max(20, Math.min(90, state.player.y));
+                
+                state.player.el.style.left = state.player.x + '%';
+                state.player.el.style.top = state.player.y + '%';
+            }
+
+            // Check Possession
+            state.enemies.forEach(enemy => {
+                if (enemy.targetable && !enemy.possessed) {
+                    const dx = state.player.x - enemy.x;
+                    const dy = state.player.y - enemy.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    
+                    if (dist < 8) {
+                        possess(enemy);
+                    }
+                }
+            });
+
+            requestAnimationFrame(update);
+        }
+
+        function possess(enemy) {
+            enemy.possessed = true;
+            enemy.el.style.filter = 'hue-rotate(240deg) brightness(1.5)';
+            state.possession = 0;
+            document.getElementById('possession-fill').style.width = '0%';
+            document.getElementById('possession-label').textContent = 'POSSESSION DEPLETED';
+            
+            // Trigger Room Clear after a delay
+            setTimeout(clearRoom, 1500);
+        }
+
+        function clearRoom() {
+            state.isRoomClear = true;
+            document.getElementById('reward-screen').style.display = 'flex';
+        }
+
+        function nextRoom() {
+            state.room++;
+            if (state.room > 5) {
+                showVictory();
+                return;
+            }
+            
+            state.isRoomClear = false;
+            document.getElementById('reward-screen').style.display = 'none';
+            document.getElementById('room-label').textContent = `ROOM ${state.room}/5`;
+            
+            // Reset player and enemies for "next room"
+            state.player.x = 50;
+            state.player.y = 60;
+            state.player.el.style.left = '50%';
+            state.player.el.style.top = '60%';
+            
+            state.enemies.forEach(enemy => {
+                enemy.possessed = false;
+                enemy.el.style.filter = '';
+            });
+            
+            state.possession = 100;
+            document.getElementById('possession-fill').style.width = '70%';
+            document.getElementById('possession-label').textContent = 'POSSESSION READY';
+            
+            requestAnimationFrame(update);
+        }
+
+        function showVictory() {
+            document.getElementById('reward-screen').style.display = 'none';
+            document.getElementById('victory-banner').style.display = 'block';
+        }
+
+        requestAnimationFrame(update);
+    </script>
+</body>
+</html>

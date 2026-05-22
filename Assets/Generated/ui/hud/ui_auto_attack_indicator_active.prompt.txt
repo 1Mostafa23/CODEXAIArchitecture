@@ -1,0 +1,9 @@
+﻿asset_id: ui_auto_attack_indicator_active
+target_png_path: Assets/Generated/ui/hud/ui_auto_attack_indicator_active.png
+prompt:
+small targeting halo icon with old-gold reticle and wax-white spark, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG icon readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Optional indicator that auto-attack is active. Used by: HUD, Player combat feedback. Unity note: UI Image only; not a button.

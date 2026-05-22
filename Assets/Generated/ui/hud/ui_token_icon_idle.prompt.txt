@@ -1,0 +1,9 @@
+﻿asset_id: ui_token_icon_idle
+target_png_path: Assets/Generated/ui/hud/ui_token_icon_idle.png
+prompt:
+old-gold casino token with cracked halo symbol and no letters or numbers, stylized dark cartoon with grotesque religious-casino motifs, charcoal old gold wax white crimson void violet palette, dark whimsical cult roguelite mood, 512x512 source PNG icon readable at 64x64 with bold charcoal outline and centered silhouette, game asset, transparent background, no text, clean edges
+negative_prompt:
+photorealistic, 3D render, blurry, text, watermark, extra limbs, deformed, low quality, noisy background
+size: 512x512
+transparency: Yes, transparent background
+usage_note: Purpose: Token currency icon. Used by: HUD, reward UI. Unity note: UI Image; text count added in Unity UI.

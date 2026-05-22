@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gospel of the Jackpot - Asset Showcase</title>
+    <style>
+        :root {
+            --charcoal: #17151A;
+            --old-gold: #C89B3C;
+            --wax-white: #E8DCC2;
+            --crimson: #9E2431;
+            --void-violet: #6D4BC3;
+            --card-bg: #1F1C24;
+            --border-color: #3a3540;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--charcoal);
+            color: var(--wax-white);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 280px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-right: 2px solid var(--old-gold);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            padding: 2rem 1rem;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+
+        aside h2 {
+            color: var(--old-gold);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--old-gold);
+            padding-bottom: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            display: block;
+            padding: 0.3rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        nav a:hover {
+            color: var(--old-gold);
+            background: rgba(200, 155, 60, 0.1);
+        }
+
+        nav a.active {
+            color: var(--wax-white);
+            background: var(--old-gold);
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        main {
+            flex-grow: 1;
+            padding: 2rem;
+            max-width: 1400px;
+        }
+
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        h1 {
+            color: var(--old-gold);
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .art-bible-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .summary-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--void-violet);
+        }
+
+        .summary-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--old-gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .summary-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin: 2rem 0;
+            position: sticky;
+            top: 1rem;
+            z-index: 100;
+        }
+
+        #assetSearch {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: #252229;
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            color: var(--wax-white);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        #assetSearch:focus {
+            border-color: var(--old-gold);
+        }
+
+        /* Gallery Sections */
+        .category-section {
+            margin-bottom: 5rem;
+        }
+
+        .category-title {
+            color: var(--old-gold);
+            font-size: 1.8rem;
+            border-left: 6px solid var(--crimson);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-title::after {
+            content: '';
+            flex-grow: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .asset-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .asset-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--old-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .image-box {
+            background-color: #111;
+            background-image: radial-gradient(#222 1px, transparent 1px);
+            background-size: 20px 20px;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .image-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            image-rendering: pixelated;
+        }
+
+        .asset-details {
+            padding: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .asset-name {
+            color: var(--old-gold);
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            word-break: break-all;
+        }
+
+        .asset-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            background: rgba(109, 75, 195, 0.2);
+            color: var(--void-violet);
+            padding: 2px 6px;
+            border-radius: 4px;
+            width: fit-content;
+        }
+
+        .info-group {
+            font-size: 0.85rem;
+        }
+
+        .info-label {
+            display: block;
+            color: var(--old-gold);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 3px;
+            opacity: 0.7;
+        }
+
+        .prompt-box {
+            background: rgba(0,0,0,0.3);
+            padding: 0.6rem;
+            border-radius: 6px;
+            font-style: italic;
+            color: #aaa;
+            max-height: 80px;
+            overflow-y: auto;
+            border-left: 2px solid var(--void-violet);
+        }
+
+        .usage-box {
+            color: #eee;
+            line-height: 1.4;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--old-gold);
+            color: var(--charcoal);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        footer {
+            margin-top: 5rem;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <h2>Categories</h2>
+        <nav id="sidebar-nav">
+            <ul>
+                <li><a href="#boss">Boss</a></li>
+                <li><a href="#enemies">Enemies</a></li>
+                <li><a href="#player">Player</a></li>
+                <li><a href="#arenas">Arenas</a></li>
+                <li><a href="#props">Props</a></li>
+                <li><a href="#possession">Possession</a></li>
+                <li><a href="#slot-body">Slot Machine</a></li>
+                <li><a href="#slot-symbols">Slot Symbols</a></li>
+                <li><a href="#controls">UI Controls</a></li>
+                <li><a href="#hud">UI HUD</a></li>
+                <li><a href="#meta">UI Meta</a></li>
+                <li><a href="#results">UI Results</a></li>
+                <li><a href="#rewards">UI Rewards</a></li>
+                <li><a href="#vfx-combat">VFX Combat</a></li>
+                <li><a href="#vfx-p03">VFX P03</a></li>
+                <li><a href="#vfx-possession">VFX Possession</a></li>
+                <li><a href="#vfx-rewards">VFX Rewards</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Gospel of the Jackpot</h1>
+                    <p style="color: var(--wax-white); opacity: 0.6; margin: 0.5rem 0 0 0;">Asset Showcase & Art Bible v1.0</p>
+                </div>
+                <a href="portrait_hud.html" style="background: var(--old-gold); color: var(--charcoal); padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(200, 155, 60, 0.4); transition: transform 0.2s;">LAUNCH PLAYABLE PROTOTYPE</a>
+            </div>
+            
+            <div class="art-bible-summary">
+                <div class="summary-card">
+                    <h4>Art Style</h4>
+                    <p>Stylized Dark Cartoon</p>
+                </div>
+                <div class="summary-card">
+                    <h4>Mood</h4>
+                    <p>Grotesque Sacred Casino</p>
+                </div>
+                <div class="summary-card" style="border-left-color: var(--crimson);">
+                    <h4>Primary Palette</h4>
+                    <p>Gold, Charcoal, Crimson</p>
+                </div>
+                <div class="summary-card" style="border-left-color: var(--old-gold);">
+                    <h4>Technical Rule</h4>
+                    <p>No baked text in sprites</p>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="assetSearch" placeholder="Search assets by name, prompt, or usage...">
+        </div>
+
+        <!-- BOSS -->
+        <section id="boss" class="category-section">
+            <h2 class="category-title">Boss</h2>
+            <div class="gallery">
+                <!-- Card -->
+                <div class="asset-card" data-search="boss_mother_couponella_idle priestess matriarch slot-machine torso candle crown clawed blessing">
+                    <div class="image-box"><img src="Assets/Generated/characters/boss/boss_mother_couponella_idle.png" alt="boss_mother_couponella_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">Character</div>
+                        <div class="asset-name">boss_mother_couponella_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Mother Couponella boss base sprite. SpriteRenderer; pivot center-bottom.</div>
+                        </div>
+                        <div class="info-group">
+                            <span class="info-label">Prompt</span>
+                            <div class="prompt-box">enormous matriarch coupon priestess with blank coupon veil, slot-machine torso... [click to see more]</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for other boss assets... I will group them for brevity in this rewrite while keeping the structure -->
+                <div class="asset-card" data-search="boss_attack_warning_marker_ready circular crimson old-gold warning sigil coupon tape spiral broken halo">
+                    <div class="image-box"><img src="Assets/Generated/characters/boss/boss_attack_warning_marker_ready.png" alt="boss_attack_warning_marker_ready"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">Telegraph</div>
+                        <div class="asset-name">boss_attack_warning_marker_ready</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Floor warning marker for boss AOE. Transparent center acceptable.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ENEMIES -->
+        <section id="enemies" class="category-section">
+            <h2 class="category-title">Enemies</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="enemy_weak_cultist_idle scrawny candle-carrying cultist crooked robe coin-like halo">
+                    <div class="image-box"><img src="Assets/Generated/characters/enemies/enemy_weak_cultist_idle.png" alt="enemy_weak_cultist_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">Enemy</div>
+                        <div class="asset-name">enemy_weak_cultist_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Weak cultist enemy base. Leave outer silhouette clear for marker ring.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="enemy_fast_fanatic_idle lanky sprinting fanatic sharp triangular hood casino-token kneepads">
+                    <div class="image-box"><img src="Assets/Generated/characters/enemies/enemy_fast_fanatic_idle.png" alt="enemy_fast_fanatic_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">Enemy</div>
+                        <div class="asset-name">enemy_fast_fanatic_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Fast fanatic enemy base. Silhouette must differ from weak cultist.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLAYER -->
+        <section id="player" class="category-section">
+            <h2 class="category-title">Player</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="player_body_idle hooded broken-faith pilgrim hero compact body oversized wax-white mask">
+                    <div class="image-box"><img src="Assets/Generated/characters/player/player_body_idle.png" alt="player_body_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">Player</div>
+                        <div class="asset-name">player_body_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Default hero body. 128 PPU, pivot center-bottom.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARENAS -->
+        <section id="arenas" class="category-section">
+            <h2 class="category-title">Arenas</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="arena_floor_corrupted_village_idle dirty stone pavers cracked casino tiles ritual circle bloodstains">
+                    <div class="image-box"><img src="Assets/Generated/environment/arenas/arena_floor_corrupted_village_idle.png" alt="arena_floor_corrupted_village_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">Environment</div>
+                        <div class="asset-name">arena_floor_corrupted_village_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Main arena floor. Tiling texture or large sprite.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROPS -->
+        <section id="props" class="category-section">
+            <h2 class="category-title">Props</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="prop_altar_slot_machine_idle stone altar carved slot machine golden lever wax-white candles">
+                    <div class="image-box"><img src="Assets/Generated/environment/props/prop_altar_slot_machine_idle.png" alt="prop_altar_slot_machine_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">Prop</div>
+                        <div class="asset-name">prop_altar_slot_machine_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">End-of-room reward altar. Interactable.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="prop_sacred_casino_candles_idle cluster melted wax candles old-gold base flickering light">
+                    <div class="image-box"><img src="Assets/Generated/environment/props/prop_sacred_casino_candles_idle.png" alt="prop_sacred_casino_candles_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">Prop</div>
+                        <div class="asset-name">prop_sacred_casino_candles_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Decorative prop for atmosphere.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POSSESSION -->
+        <section id="possession" class="category-section">
+            <h2 class="category-title">Possession</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="possession_ready_marker_ready floating eye sigil void-violet flame halo indicator">
+                    <div class="image-box"><img src="Assets/Generated/possession/possession_ready_marker_ready.png" alt="possession_ready_marker_ready"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI/VFX</div>
+                        <div class="asset-name">possession_ready_marker_ready</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Floating marker above enemies when possession is possible.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="possession_marked_vessel_ring_ready rotating ritual circle void-violet old-gold geometric patterns">
+                    <div class="image-box"><img src="Assets/Generated/possession/possession_marked_vessel_ring_ready.png" alt="possession_marked_vessel_ring_ready"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">VFX</div>
+                        <div class="asset-name">possession_marked_vessel_ring_ready</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Ground ring for targeted vessel.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI HUD (Priority for user) -->
+        <section id="hud" class="category-section">
+            <h2 class="category-title">UI HUD</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="ui_hp_frame_idle horizontal cracked reliquary health bar frame old-gold corners wax-white bone inlay">
+                    <div class="image-box"><img src="Assets/Generated/ui/hud/ui_hp_frame_idle.png" alt="ui_hp_frame_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_hp_frame_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">HP bar frame. Use as sliced UI Image.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="ui_possession_charge_frame_idle horizontal cracked halo charge frame void-violet inner groove old-gold casino corners">
+                    <div class="image-box"><img src="Assets/Generated/ui/hud/ui_possession_charge_frame_idle.png" alt="ui_possession_charge_frame_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_possession_charge_frame_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Possession charge bar frame. Sliced UI Image.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="ui_auto_attack_indicator_active glowing golden eye small icon active state">
+                    <div class="image-box"><img src="Assets/Generated/ui/hud/ui_auto_attack_indicator_active.png" alt="ui_auto_attack_indicator_active"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_auto_attack_indicator_active</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Active auto-attack indicator.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLOT MACHINE -->
+        <section id="slot-body" class="category-section">
+            <h2 class="category-title">Slot Machine</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="slot_machine_body_idle ornate gothic slot machine dark wood gold trim stained glass panels">
+                    <div class="image-box"><img src="Assets/Generated/slot_machine/body/slot_machine_body_idle.png" alt="slot_machine_body_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI/Prop</div>
+                        <div class="asset-name">slot_machine_body_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Main slot machine body for reward screen.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="slot_reel_panel_idle simple dark recessed panel for symbols gold border">
+                    <div class="image-box"><img src="Assets/Generated/slot_machine/body/slot_reel_panel_idle.png" alt="slot_reel_panel_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">slot_reel_panel_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Background panel for individual slot reels.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLOT SYMBOLS -->
+        <section id="slot-symbols" class="category-section">
+            <h2 class="category-title">Slot Symbols</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="slot_symbol_token_idle golden casino token coin with religious engraving">
+                    <div class="image-box"><img src="Assets/Generated/slot_machine/symbols/slot_symbol_token_idle.png" alt="slot_symbol_token_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">slot_symbol_token_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Standard slot symbol.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="slot_symbol_eye_idle stylized glowing eye ritual symbol void-violet">
+                    <div class="image-box"><img src="Assets/Generated/slot_machine/symbols/slot_symbol_eye_idle.png" alt="slot_symbol_eye_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">slot_symbol_eye_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">High-value slot symbol.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI CONTROLS -->
+        <section id="controls" class="category-section">
+            <h2 class="category-title">UI Controls</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="ui_joystick_base_idle translucent circular base for virtual joystick old-gold ring">
+                    <div class="image-box"><img src="Assets/Generated/ui/controls/ui_joystick_base_idle.png" alt="ui_joystick_base_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_joystick_base_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Joystick base for movement control.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="ui_joystick_knob_idle solid golden knob with wax-white inlay center">
+                    <div class="image-box"><img src="Assets/Generated/ui/controls/ui_joystick_knob_idle.png" alt="ui_joystick_knob_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_joystick_knob_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Draggable joystick knob.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI META -->
+        <section id="meta" class="category-section">
+            <h2 class="category-title">UI Meta</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="ui_broken_seal_icon_idle cracked circular seal dark stone crimson glow meta progression">
+                    <div class="image-box"><img src="Assets/Generated/ui/meta/ui_broken_seal_icon_idle.png" alt="ui_broken_seal_icon_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_broken_seal_icon_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Icon for meta-progression unlocks.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI RESULTS -->
+        <section id="results" class="category-section">
+            <h2 class="category-title">UI Results</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="ui_victory_emblem_active glorious golden crown stylized wings radiant light victory">
+                    <div class="image-box"><img src="Assets/Generated/ui/results/ui_victory_emblem_active.png" alt="ui_victory_emblem_active"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_victory_emblem_active</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Emblem shown on win screen.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-card" data-search="ui_defeat_emblem_active shattered halo dark crimson skull shadow defeat">
+                    <div class="image-box"><img src="Assets/Generated/ui/results/ui_defeat_emblem_active.png" alt="ui_defeat_emblem_active"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_defeat_emblem_active</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Emblem shown on game over screen.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI REWARDS -->
+        <section id="rewards" class="category-section">
+            <h2 class="category-title">UI Rewards</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="ui_reward_card_frame_idle tall rectangular frame wax-white stone gold corner accents">
+                    <div class="image-box"><img src="Assets/Generated/ui/rewards/ui_reward_card_frame_idle.png" alt="ui_reward_card_frame_idle"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">UI</div>
+                        <div class="asset-name">ui_reward_card_frame_idle</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Base frame for reward cards.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VFX -->
+        <section id="vfx-combat" class="category-section">
+            <h2 class="category-title">VFX Combat</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="vfx_hit_impact_active bright white starburst golden sparks sharp geometric lines">
+                    <div class="image-box"><img src="Assets/Generated/vfx/combat/vfx_hit_impact_active.png" alt="vfx_hit_impact_active"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">VFX</div>
+                        <div class="asset-name">vfx_hit_impact_active</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Universal hit impact effect.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vfx-p03" class="category-section">
+            <h2 class="category-title">VFX P03</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="vfx_p03_explosion_active massive circular blast void-violet center crimson edges jagged lightning">
+                    <div class="image-box"><img src="Assets/Generated/vfx/p03/vfx_p03_explosion_active.png" alt="vfx_p03_explosion_active"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">VFX</div>
+                        <div class="asset-name">vfx_p03_explosion_active</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">P03 (Possession 03) explosion effect.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vfx-possession" class="category-section">
+            <h2 class="category-title">VFX Possession</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="vfx_possession_tether_flash_active bright void-violet flash geometric spark">
+                    <div class="image-box"><img src="Assets/Generated/vfx/possession/vfx_possession_tether_flash_active.png" alt="vfx_possession_tether_flash_active"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">VFX</div>
+                        <div class="asset-name">vfx_possession_tether_flash_active</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Flash effect when starting possession tether.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vfx-rewards" class="category-section">
+            <h2 class="category-title">VFX Rewards</h2>
+            <div class="gallery">
+                <div class="asset-card" data-search="vfx_reward_reveal_sparkle_active golden sparkles light rays celebration">
+                    <div class="image-box"><img src="Assets/Generated/vfx/rewards/vfx_reward_reveal_sparkle_active.png" alt="vfx_reward_reveal_sparkle_active"></div>
+                    <div class="asset-details">
+                        <div class="asset-tag">VFX</div>
+                        <div class="asset-name">vfx_reward_reveal_sparkle_active</div>
+                        <div class="info-group">
+                            <span class="info-label">Usage</span>
+                            <div class="usage-box">Sparkle effect for reward reveals.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add more sections as needed, or just link to the previous ones if they are too many -->
+
+        <footer>
+            <p>&copy; 2026 Gospel of the Jackpot - Internal Development Resource</p>
+            <p style="margin-top: 1rem; opacity: 0.5;">Optimized for high-speed asset verification.</p>
+        </footer>
+    </main>
+
+    <a href="#" class="back-to-top">TOP</a>
+
+    <script>
+        // Simple Search Logic
+        const searchInput = document.getElementById('assetSearch');
+        const cards = document.querySelectorAll('.asset-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            cards.forEach(card => {
+                const searchContent = card.getAttribute('data-search').toLowerCase();
+                const nameContent = card.querySelector('.asset-name').textContent.toLowerCase();
+                if (searchContent.includes(term) || nameContent.includes(term)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Hide empty sections
+            document.querySelectorAll('.category-section').forEach(section => {
+                const visibleCards = section.querySelectorAll('.asset-card[style="display: flex;"], .asset-card:not([style])');
+                if (visibleCards.length === 0) {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = 'block';
+                }
+            });
+        });
+
+        // Sidebar Active State
+        window.addEventListener('scroll', () => {
+            let current = "";
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
